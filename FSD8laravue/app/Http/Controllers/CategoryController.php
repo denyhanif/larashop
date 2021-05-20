@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index(Request $request)
     {
-        $categories = \App\MOdels\Category::paginate(10);
+        $categories = \App\Models\Category::paginate(10);
         $filterKeyword = $request->get('name');
         if($filterKeyword){
         $categories = \App\Models\Category::where("name", "LIKE", "%$filterKeyword%")->paginate(10);
@@ -162,6 +162,23 @@ class CategoryController extends Controller
         }
 
     }
+
+    public function ajaxSearch(Request $request){
+        
+         $keyword = $request->get('q');
+
+//      $categories = \App\Models\Category::where("name", "LIKE", "%$keyword%")->get();
+              $categories = \App\Models\Category::where("name" , "LIKE" ,"%$keyword%")->get();
+
+
+      return $categories;
+        
+        
+        // $keyword = $request->get('q');
+        // $categories = \App\Models\Category::where("name" , "LIKE" ,"%keyword%")->get();
+        // return $categories;
+    }
+    
 }
 
 
