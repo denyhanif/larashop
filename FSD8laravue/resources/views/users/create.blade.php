@@ -20,97 +20,116 @@
 
       <label for="name">Name</label>
       <input 
-        class="form-control" 
+        class="form-control {{$errors->first('name')? "is-invalid" :"" }}" 
         placeholder="Full Name" 
         type="text" 
         name="name" 
-        id="name"/>
+        id="name" value="{old('name')}"/>
+        <div class="invalid-feedback">{{ $errors->name }}</div>
       <br>
 
       <label for="username">Username</label>
       <input 
-        class="form-control" 
-        placeholder="username" 
+        class="form-control {{$errors->first('username')?"is-invalid":""  }}" 
+        placeholder="username"
+        value="{{ old('username') }}" 
         type="text" 
         name="username" 
         id="username"/>
+        <div class="invalid-feedback">{{ $errors->first('username') }}</div>
       <br>
 
       <label for="">Roles</label>
       <br>
       <input 
+        class="form-control {{$errors->first('roles')?"is-invalid":""  }}" 
         type="checkbox" 
         name="roles[]" 
         id="ADMIN" 
         value="ADMIN"> 
         <label for="ADMIN">Administrator</label>
 
-      <input 
+      <input
+        class="form-control {{$errors->first('roles')?"is-invalid":""  }}"  
         type="checkbox" 
         name="roles[]" 
         id="STAFF" 
         value="STAFF"> 
         <label for="STAFF">Staff</label>
 
-      <input 
+      <input
+        class="form-control {{$errors->first('roles')?"is-invalid":""  }}" 
         type="checkbox" 
         name="roles[]" 
         id="CUSTOMER" 
         value="CUSTOMER"> 
         <label for="CUSTOMER">Customer</label>
+        <div class="invalid-feedback">{{ $errors->first('roles') }}</div>
       <br>
 
       <br>
       <label for="phone">Phone number</label> 
       <br>
       <input 
+      class="form-control {{$errors->first('phone')?"is-invalid":""  }}"
         type="text" 
         name="phone" 
-        class="form-control">
+        value="{{ old('phone') }}">
+        <div class="invalid-feddback">{{ $erros->first('phone') }}</div>
 
       <br>
       <label for="address">Address</label>
       <textarea 
         name="address" 
         id="address" 
-        class="form-control"></textarea>
+        class="form-control{{$errors->first('address')?"is-invalid":"" }}">{{ old('address') }}</textarea>
 
       <br>
       <label for="avatar">Avatar image</label>
       <br>
       <input 
+        value="{{ old('avatar') }}"
         id="avatar" 
         name="avatar" 
         type="file" 
-        class="form-control">
+        class="form-control{{ $errors->first('avatar')?"is-invalid":"" }}">
+        <div class="invalid-feedback">
+          {{ $errors->fisrt('avatar') }}
+        </div>
 
       <hr class="my-3">
 
       <label for="email">Email</label>
-      <input 
-        class="form-control" 
+      <input
+        value="{{ old('email') }}"
+        class="form-control{{ $errors->first('email')? "is-invalid":"" }}" 
         placeholder="user@mail.com" 
         type="text" 
         name="email" 
         id="email"/>
+        <div class="invalid-feedback">{{ $errors->first('email') }}</div>
       <br>
 
       <label for="password">Password</label>
       <input 
-        class="form-control" 
+        value="{{ old('password') }}"
+        class="form-control {{ $errors->first('password')? "is-invalid":"" }}" 
         placeholder="password" 
         type="password" 
         name="password" 
         id="password"/>
+        <div class="invalid-feedback">{{ $errors->fisrt('password') }}</div>
       <br>
 
       <label for="password_confirmation">Password Confirmation</label>
       <input 
-        class="form-control" 
+        value=""
+        class="form-control{{ $errors->forst('password_confirmation')?"is-invalid":"" }}" 
         placeholder="password confirmation" 
         type="password" 
         name="password_confirmation" 
         id="password_confirmation"/>
+        <div class="invalid-feedback">{{ $errors->first('password_conformation') }}</div>
       <br>
 
       <input 

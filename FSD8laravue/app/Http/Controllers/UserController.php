@@ -48,6 +48,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $validation = \Validator::make($request->all(),[
+            "name"=> "required|min:5|max:100",
+            "username" => "requirde|min:5|max:20|unique:users",
+            "roles"=> "required|",
+            "phone"=>"required|digits_between:10,12",
+            "addres"=> "required|min:20|max:200",
+            "avatar"=> "required",
+            "email"=> "required|email|unique:users",
+            "password"=> "required|email|unique:users",
+            "password_confirmation"=> "required|same:password"
+            
+        ])->validate();
+
         $new_user = new User;
 
         $new_user->name = $request->get('name');
@@ -102,6 +115,14 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+         \Validator::make($request->all(), [
+            "name"=>"required|min:5|max:100",
+            "roles"=>"required",
+            "phone"=>"required|digits_between:10,20",
+            "address"=>"required|min:20|max:200",
+        ])->validate();
+
         $user = User::findOrFail($id);
 
     $user->name = $request->get('name');
