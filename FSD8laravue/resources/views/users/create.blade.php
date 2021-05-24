@@ -24,7 +24,8 @@
         placeholder="Full Name" 
         type="text" 
         name="name" 
-        id="name" value="{old('name')}"/>
+        id="name" value="{{old('name')
+      }}"/>
         <div class="invalid-feedback">{{ $errors->name }}</div>
       <br>
 
@@ -75,7 +76,7 @@
         type="text" 
         name="phone" 
         value="{{ old('phone') }}">
-        <div class="invalid-feddback">{{ $erros->first('phone') }}</div>
+        <div class="invalid-feddback">{{ $errors->first('phone') }}</div>
 
       <br>
       <label for="address">Address</label>
@@ -94,7 +95,7 @@
         type="file" 
         class="form-control{{ $errors->first('avatar')?"is-invalid":"" }}">
         <div class="invalid-feedback">
-          {{ $errors->fisrt('avatar') }}
+          {{ $errors->first('avatar') }}
         </div>
 
       <hr class="my-3">
@@ -118,13 +119,13 @@
         type="password" 
         name="password" 
         id="password"/>
-        <div class="invalid-feedback">{{ $errors->fisrt('password') }}</div>
+        <div class="invalid-feedback">{{ $errors->first('password') }}</div>
       <br>
 
       <label for="password_confirmation">Password Confirmation</label>
       <input 
         value=""
-        class="form-control{{ $errors->forst('password_confirmation')?"is-invalid":"" }}" 
+        class="form-control{{ $errors->first('password_confirmation')?"is-invalid":"" }}" 
         placeholder="password confirmation" 
         type="password" 
         name="password_confirmation" 

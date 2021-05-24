@@ -28,7 +28,7 @@ Create Book
             <label for="cover">Cover</label>
             <input 
               type="file" 
-              class="form-control {{$errors->first('cover') ? "is-invalid" : """ 
+              class="form-control {{$errors->first('cover') ? "is-invalid" : ""}}" 
               name="cover"
               value="">
               <div class="invalid-feedback">
